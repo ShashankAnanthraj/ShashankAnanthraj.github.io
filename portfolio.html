@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shashank Anantharaju | Data Engineer</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        font-family: 'Inter', sans-serif;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    body.light {
+        background: #f8fafc;
+        color: #1e293b;
+    }
+
+    body.dark {
+        background: #0f172a;
+        color: white;
+    }
+
+    .card {
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+    }
+
+    body.dark .card {
+        background: #1e293b;
+        border: 1px solid #334155;
+    }
+
+    body.light .card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .tech-badge {
+        display: inline-block;
+        padding: 8px 16px;
+        margin: 6px;
+        background: #3b82f6;
+        color: white;
+        border-radius: 9999px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+
+    .tech-badge:hover {
+        transform: scale(1.1);
+        background: #2563eb;
+    }
+
+    header {
+        text-align: center;
+        padding: 80px 20px;
+    }
+
+    .profile-img {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        border: 4px solid #38bdf8;
+        object-fit: cover;
+        margin-bottom: 20px;
+        animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    .subtitle {
+        color: #94a3b8;
+        font-size: 18px;
+    }
+
+    body.light .subtitle {
+        color: #64748b;
+    }
+
+    .section {
+        padding: 60px 20px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .section h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    body.dark .section h2 {
+        color: #38bdf8;
+    }
+
+    body.light .section h2 {
+        color: #2563eb;
+    }
+
+    .grid {
+        display: grid;
+        gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+        .grid-2 { grid-template-columns: 1fr 1fr; }
+        .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    button.btn-primary {
+        background: #3b82f6;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 9999px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 20px;
+        color: white;
+        transition: all 0.3s;
+    }
+
+    button.btn-primary:hover {
+        background: #2563eb;
+        transform: scale(1.05);
+    }
+
+    button.btn-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #3b82f6;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 9999px;
+        cursor: pointer;
+        color: white;
+        font-weight: 600;
+        z-index: 1000;
+        transition: all 0.3s;
+    }
+
+    button.btn-toggle:hover {
+        background: #2563eb;
+    }
+
+    .arch-img {
+        width: 100%;
+        border-radius: 12px;
+        margin-top: 15px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px 20px;
+        color: #94a3b8;
+    }
+
+    body.light footer {
+        color: #64748b;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .animate-slide-left {
+        animation: slideInLeft 0.6s ease-out forwards;
+    }
+
+    .animate-slide-right {
+        animation: slideInRight 0.6s ease-out forwards;
+    }
+
+    .hidden-animate {
+        opacity: 0;
+    }
+
+    .card {
+        opacity: 0;
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+</style>
+</head>
+
+<body class="dark">
+
+<header class="animate-fade-in" style="padding-top: 60px;">
+    <img src="profile.jpg" class="profile-img" style="width: 220px; height: 220px;">
+    <h1 style="font-size: 48px; margin-top: 20px;">Shashank Anantharaju</h1>
+    <p class="subtitle" style="font-size: 24px; color: #38bdf8; font-weight: 600; margin-top: 15px;">Data + AI Engineer</p>
+    <p class="subtitle" style="font-size: 18px; margin-top: 10px;">Databricks | PySpark | Delta Lake | Snowflake</p>
+    <a href="shashank_Resume.pdf" download>
+        <button class="btn-primary" style="margin-top: 30px;">Download Resume</button>
+    </a>
+</header>
+
+<section class="section">
+    <h2>Technical Skills</h2>
+    <p style="text-align: center; color: #94a3b8; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Building scalable data solutions with modern technologies</p>
+    
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <!-- Data Platforms -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #3b82f6, #06b6d4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Data Platforms</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Enterprise lakehouse & data warehouse</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Databricks</span><span class="tech-badge">Snowflake</span>
+            </div>
+        </div>
+
+        <!-- Programming -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #22c55e, #10b981); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Programming</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Data transformation & analytics</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Python</span><span class="tech-badge">PySpark</span><span class="tech-badge">SQL</span>
+            </div>
+        </div>
+
+        <!-- Databricks Stack -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #a855f7, #ec4899); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Databricks Stack</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Pipeline development & migration</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Delta Lake</span><span class="tech-badge">DLT</span><span class="tech-badge">LakeFlow</span><span class="tech-badge">Lakebridge</span><span class="tech-badge">SDP</span>
+            </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f97316, #ef4444); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Databases</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Enterprise & cloud databases</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Oracle</span><span class="tech-badge">Snowflake</span>
+            </div>
+        </div>
+
+        <!-- Cloud Platforms -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #eab308, #f59e0b); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Cloud Platforms</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Cloud infrastructure & services</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">AWS</span><span class="tech-badge">Azure</span>
+            </div>
+        </div>
+
+        <!-- BI & Reporting -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #6366f1, #3b82f6); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">BI & Reporting</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Data visualization & analytics</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">PowerBI</span><span class="tech-badge">Tableau</span><span class="tech-badge">Looker</span>
+            </div>
+        </div>
+
+        <!-- Tools & DevOps -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #64748b, #71717a); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Tools & DevOps</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Version control & orchestration</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Github</span><span class="tech-badge">GitLab</span><span class="tech-badge">Linux</span><span class="tech-badge">Airflow</span><span class="tech-badge">Docker</span><span class="tech-badge">Jobs & Pipelines</span>
+            </div>
+        </div>
+
+        <!-- Core Expertise -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f43f5e, #ec4899); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Core Expertise</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Advanced data engineering</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">DLT Pipelines</span><span class="tech-badge">SCD Type 2</span><span class="tech-badge">Medallion</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- AI & Machine Learning Section -->
+<section class="section">
+    <h2>AI & Machine Learning</h2>
+    <p style="text-align: center; color: #94a3b8; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Building intelligent data solutions with AI/ML integration</p>
+    
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <!-- AI & ML -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">AI & ML</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Intelligent automation & agents</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Agentic AI</span><span class="tech-badge">AI Agents</span><span class="tech-badge">Automation</span>
+            </div>
+        </div>
+
+        <!-- MLOps & Servers -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #06b6d4, #3b82f6); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">MLOps & Servers</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Model deployment & serving</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">MCP Servers</span><span class="tech-badge">API Model Integration</span><span class="tech-badge">Inference Optimization</span>
+            </div>
+        </div>
+
+        <!-- RAG & Vectors -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f59e0b, #f97316); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">RAG & Vectors</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Retrieval & embeddings</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">RAG</span><span class="tech-badge">Vector Databases</span><span class="tech-badge">Fine-tuning</span>
+            </div>
+        </div>
+
+        <!-- Inference -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #ec4899, #f43f5e); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Inference</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">AI model execution</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Batch Inference</span><span class="tech-badge">Real-time Inference</span><span class="tech-badge">Model Optimization</span>
+            </div>
+        </div>
+
+        <!-- Deep Learning -->
+        <div class="card" style="padding: 25px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #ef4444, #f97316); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Deep Learning</h3>
+            <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Neural networks & NLP</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">TensorFlow</span><span class="tech-badge">PyTorch</span><span class="tech-badge">CNN</span><span class="tech-badge">RNN</span><span class="tech-badge">LSTM</span><span class="tech-badge">Transformers</span><span class="tech-badge">BERT</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Expertise Highlights -->
+<section class="section">
+    <h2>Expertise Highlights</h2>
+    <div class="grid grid-2" style="gap: 15px;">
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+            <span>DLT Pipelines with full & incremental loads</span>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <span>Medallion Architecture (Bronze/Silver/Gold)</span>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span>LakeFlow Connect with SCD Type 2</span>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/></svg>
+            </div>
+            <span>Oracle to Databricks migration via Lakebridge</span>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <span>Data validation, reconciliation & optimization</span>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span>Data marts for reporting & analytics</span>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(139, 92, 246, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+            </div>
+            <span>Agentic AI for production-grade automation</span>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(245, 158, 11, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <span>RAG pipelines with Vector Databases</span>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(236, 72, 153, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            </div>
+            <span>LLM integration & fine-tuning for enterprise</span>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Tech Stack</h2>
+    <div style="text-align:center;">
+        <span class="tech-badge">Databricks</span>
+        <span class="tech-badge">PySpark</span>
+        <span class="tech-badge">Snowflake</span>
+        <span class="tech-badge">AWS</span>
+        <span class="tech-badge">Azure Cloud</span>
+        <span class="tech-badge">DBT Cloud</span>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">SQL</span>
+        <span class="tech-badge">Agentic AI</span>
+        <span class="tech-badge">ML</span>
+        <span class="tech-badge">Automation</span>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Corporate Experience</h2>
+    <div class="grid grid-2">
+        <div class="card" style="padding: 30px; text-align: center;">
+            <img src="dm.jpg" alt="Decision Minds" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 15px;">
+            <h3>Decision Minds</h3>
+            <p style="margin-top: 15px;">Built DLT pipelines with full & incremental loads. Implemented LakeFlow Connect with SCD Type 2. Used Lakebridge for Oracle to Databricks migration.</p>
+            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #334155;">
+                <p style="color: #64748b; font-size: 12px; margin-bottom: 8px;">Clients</p>
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <img src="gfm.png" alt="Client" style="width: 50px; height: 50px; object-fit: contain;">
+                    <img src="nxp.png" alt="Client" style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+        <div class="card" style="padding: 30px; text-align: center;">
+            <img src="quess.png" alt="Quess Corp" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 15px;">
+            <h3>Quess Corp Limited</h3>
+            <p style="margin-top: 15px;">Developed ingestion pipelines using PySpark and SQL. Supported pipeline monitoring and performance optimization.</p>
+            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #334155;">
+                <p style="color: #64748b; font-size: 12px; margin-bottom: 8px;">Client</p>
+                <img src="indigo.png" alt="Client" style="width: 60px; height: 60px; object-fit: contain;">
+            </div>
+        </div>
+        <div class="card" style="padding: 30px; text-align: center;">
+            <img src="abeyaantrix.jpg" alt="Abeyaantrix Solutions" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 15px;">
+            <h3>Abeyaantrix Solutions</h3>
+            <p style="margin-top: 15px;">Assisted in building batch and near-real-time data pipelines using Spark and Databricks. Gained hands-on experience with SQL, PySpark, Git, and ETL workflows.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Featured Project – Oracle to Databricks Migration</h2>
+    <div class="card" style="padding: 30px;">
+        <p style="margin-bottom: 25px;">
+            Led Oracle to Databricks migration using Lakebridge.
+            Implemented schema conversion, incremental loads,
+            and data validation for enterprise datasets.
+        </p>
+        
+        <!-- Migration Architecture -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 80px; margin-bottom: 20px;">
+            <div style="text-align: center;">
+                <p style="color: #64748b; font-size: 14px; font-weight: 600; margin-bottom: 12px;">SOURCE</p>
+                <img src="oracle.png" alt="Oracle" style="width: 200px; height: 200px; object-fit: contain;">
+                <p style="color: #f97316; font-weight: bold; margin-top: 12px; font-size: 22px;">Oracle</p>
+            </div>
+            <span style="font-size: 50px; color: #64748b;">→</span>
+            <div style="text-align: center;">
+                <p style="color: #64748b; font-size: 14px; font-weight: 600; margin-bottom: 12px;">TARGET</p>
+                <img src="databricks.png" alt="Databricks" style="width: 200px; height: 200px; object-fit: contain;">
+                <p style="color: #38bdf8; font-weight: bold; margin-top: 12px; font-size: 22px;">Databricks</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Certifications</h2>
+    <div class="grid grid-2">
+        <div class="card">
+            <p style="color: #38bdf8; font-weight: 600;">Databricks Certified Data Engineer – Associate</p>
+        </div>
+        <div class="card">
+            <p style="color: #38bdf8; font-weight: 600;">Aspiring Databricks Certified Data Engineer – Professional</p>
+        </div>
+        <div class="card">
+            <p style="color: #38bdf8; font-weight: 600;">Databricks Lakehouse Fundamentals</p>
+        </div>
+        <div class="card">
+            <p style="color: #38bdf8; font-weight: 600;">SnowPro Core Certification</p>
+        </div>
+        <div class="card">
+            <p style="color: #38bdf8; font-weight: 600;">MLOps (Machine Learning Operations) Certificate</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Education</h2>
+    <div class="card" style="text-align: center;">
+        <img src="ATME-logo.png" alt="ATME College" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 15px;">
+        <h3 style="color: #38bdf8; font-size: 22px;">Bachelor of Engineering (BE) – Computer Science</h3>
+        <p style="font-size: 18px; margin-top: 10px;">ATME College of Engineering, Mysuru</p>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Projects</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div class="card" style="padding: 25px;">
+            <h3 style="color: #38bdf8; font-size: 18px; font-weight: 700; margin-bottom: 10px;">NXP Semiconductor Data Platform</h3>
+            <p style="color: #cbd5e1; margin-bottom: 15px;">Built enterprise data lakehouse with DLT pipelines and real-time analytics.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Databricks</span><span class="tech-badge">DLT</span><span class="tech-badge">Delta Lake</span>
+            </div>
+        </div>
+        <div class="card" style="padding: 25px;">
+            <h3 style="color: #38bdf8; font-size: 18px; font-weight: 700; margin-bottom: 10px;">Oracle to Databricks Migration</h3>
+            <p style="color: #cbd5e1; margin-bottom: 15px;">Migrated legacy Oracle databases to Databricks lakehouse using Lakebridge.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">Oracle</span><span class="tech-badge">Lakebridge</span><span class="tech-badge">Snowflake</span>
+            </div>
+        </div>
+        <div class="card" style="padding: 25px;">
+            <h3 style="color: #38bdf8; font-size: 18px; font-weight: 700; margin-bottom: 10px;">Real-time Analytics Dashboard</h3>
+            <p style="color: #cbd5e1; margin-bottom: 15px;">Created near real-time dashboards for business intelligence and reporting.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tech-badge">PowerBI</span><span class="tech-badge">PySpark</span><span class="tech-badge">Airflow</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Shashank Anantharaju
+</footer>
+
+<script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+</body>
+</html>
