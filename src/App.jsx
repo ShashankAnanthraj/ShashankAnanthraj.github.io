@@ -14,6 +14,10 @@ import abeyaantrixImg from "./assets/abeyaantrix.jpg";
 import atmeImg from "./assets/ATME-logo.png";
 import dmImg from "./assets/dm.jpg";
 import quessImg from "./assets/quess.png";
+import dbxassociateImg from "./assets/dbxassociate.png";
+import sfcoreImg from "./assets/sfcore.png";
+import mlopsImg from "./assets/mlops.jpg";
+import gaiImg from "./assets/GAI.png";
 
 function App() {
   const [dark, setDark] = useState(true);
@@ -139,11 +143,10 @@ function App() {
   ];
 
   const certifications = [
-    "Databricks Certified Data Engineer – Associate",
-    "Aspiring Databricks Certified Data Engineer – Professional",
-    "Databricks Lakehouse Fundamentals",
-    "SnowPro Core Certification",
-    "MLOps (Machine Learning Operations) Certificate"
+    { title: "Databricks Certified Data Engineer – Associate", img: dbxassociateImg },
+    { title: "SnowPro Core Certification", img: sfcoreImg },
+    { title: "MLOps (Machine Learning Operations) Certificate", img: mlopsImg },
+    { title: "Databricks Accredited Generative AI Fundamentals", img: gaiImg }
   ];
 
   const education = {
@@ -536,9 +539,14 @@ function App() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center"
+              className="bg-slate-800 p-5 rounded-xl border border-slate-700 flex items-center gap-4"
             >
-              <span className="text-blue-400 font-semibold">{cert}</span>
+              <img 
+                src={cert.img} 
+                alt={cert.title} 
+                className="w-12 h-12 object-contain flex-shrink-0"
+              />
+              <span className="text-blue-400 font-semibold">{cert.title}</span>
             </motion.div>
           ))}
         </div>
@@ -587,19 +595,19 @@ function App() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              title: "NXP Semiconductor Data Platform",
-              description: "Built enterprise data lakehouse with DLT pipelines and real-time analytics.",
-              tags: ["Databricks", "DLT", "Delta Lake"]
+              title: "Quantabridge (Production)",
+              description: "Pentaho → Databricks Notebook Converter is a migration tool that automatically transforms Pentaho Data Integration files (.ktr/.kjb) into Databricks-ready Jupyter notebooks or PySpark scripts. It preserves workflow logic using hop-based ordering and converts major ETL steps (joins, filters, aggregations, lookups, file inputs, etc.) into equivalent Spark DataFrame operations. The tool supports batch conversion, maintains the original directory structure, and flags unsupported steps with clear TODO markers for manual review. It is extensible, making it easy to add custom step handlers or adapt the output for other cloud platforms.",
+              tags: ["Databricks", "Pentaho", "PySpark", "ETL"]
             },
             {
-              title: "Oracle to Databricks Migration",
-              description: "Migrated legacy Oracle databases to Databricks lakehouse using Lakebridge.",
-              tags: ["Oracle", "Lakebridge", "Snowflake"]
+              title: "Interview_AI",
+              description: "The Interview AI App is an AI-powered interview preparation platform built using Databricks Apps, leveraging the full capabilities of the Databricks Lakehouse ecosystem. It utilizes Databricks Model Serving for dynamic question generation and answer evaluation, while storing structured user data and interview analytics in Delta Lake tables. The app integrates features such as secure secret management, scalable compute, and real-time analytics through Databricks SQL. Designed with an interactive UI, it enables candidates to practice mock interviews, upload learning materials, receive AI-driven feedback, and track performance improvements over time within a unified Databricks environment.",
+              tags: ["Databricks", "ML", "Delta Lake", "Model Serving"]
             },
             {
-              title: "Real-time Analytics Dashboard",
-              description: "Created near real-time dashboards for business intelligence and reporting.",
-              tags: ["PowerBI", "PySpark", "Airflow"]
+              title: "Oracle to Databricks Converter (Production)",
+              description: "Legacy System ➜ Databricks Converter is a Databricks-native web application designed to accelerate SQL migration and schema reconciliation from legacy platforms (Snowflake, Oracle, Redshift, SSIS, Informatica, etc.) into Databricks SQL. It leverages LLMs such as Claude, GPT, and Llama to convert queries, validate them using EXPLAIN, and automatically retry failed conversions with error-aware corrections. The application supports both real-time interactive conversions and large-scale batch processing, with results persisted in Delta tables for tracking and auditing. It also includes schema reconciliation capabilities to compare source and target systems, ensuring post-migration data accuracy and consistency.",
+              tags: ["Databricks", "LLM", "SQL Migration", "Delta Lake"]
             }
           ].map((project, index) => (
             <motion.div
