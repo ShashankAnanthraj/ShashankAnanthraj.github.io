@@ -23,6 +23,8 @@ export default defineConfig([
       },
     },
     rules: {
+      // ESLint 10 tracks JSX identifier usage natively, so identifiers used
+      // only inside JSX (e.g. `motion` in <motion.div>) are not flagged here.
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
